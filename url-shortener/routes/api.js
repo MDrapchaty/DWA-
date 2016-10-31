@@ -147,21 +147,16 @@ sequelize
 	});
 
 
-	router.get('/go/:shortURL', function(req, res){  // Get a single row's original url based on short url entered
-		
-			Url.findAll({
+	router.get('/go/:shortURL', function(req, res){  // Redirect to original url based on short url entered
+			Url.find({
 				where: {short_url: req.params.shortURL},
 	  			attributes: ['long_url']
 			}).then(function (Url) {
-				    res.send(Url);
+				    res.redirect("http://" + Url.long_url);
 				    
-
-
-
 			}).error(function (err) {
 			    console.log("Error:" + err);
 			});
-
 	});
 
 	

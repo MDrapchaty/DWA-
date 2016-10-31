@@ -31,5 +31,5 @@ http://localhost:3000/api/v1/url/:id(parameter)
 Returns the long original Url when the shortened url is entered as parameter
 http://localhost:3000/api/go/:shortURL(parameter)
 
-//user will enter the short url after go/ and will get the oringial url, this is supposed to redirect, but I have not gotten the redirect part working yet
+//user will enter the short url after go/ and will be redirected to the oringial url
 
