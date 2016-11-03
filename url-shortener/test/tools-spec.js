@@ -13,7 +13,7 @@ describe("Tools", function(){
 		});
 	});
 
-	describe("loadWiki()", function(done){
+	describe("loadWiki()", function(done){  //testing 
 		
 		this.timeout(5000);
 
