@@ -1,30 +1,29 @@
-
-
 var expect = require("chai").expect;
 var tools = require("../lib/tools");
+var api = require("../routes/api");
+var request = require("supertest");
 
+describe("printName()", function(){
+	it("should print the last name first", function(){
+		var results = tools.printName({ first: "Matt", last: "Drap"});
 
-describe("Tools", function(){
-	describe("printName()", function(){
-		it("should print the last name first", function(){
-			var results = tools.printName({ first: "Matt", last: "Drap"});
-
-			expect(results).to.equal("Drap, Matt");
-		});
+		expect(results).to.equal("Drap, Matt");
 	});
-
-	describe("loadWiki()", function(done){
-		
-		this.timeout(5000);
-
-		it("Load Abraham Lincoln's wikipedia page");
-
-			tools.loadWiki({ first: "Abraham", last: "Lincoln"}, function(html){
-				expect(html).to.be.ok;
-				done();
-			});
-
-	});
-
 });
 
+describe('testing', function(){
+	var server;
+	beforeEach(function () {
+    server = require('../src/server.js');
+  });
+  afterEach(function () {
+    
+  });
+  it('.get /v1/urls', function testSlash(done) {
+  request(server)
+    .get('/v1/urls')
+    .set('Accept', 'application/json')
+    .expect('Content-Type', "text/html; charset=utf-8", done);
+  });
+ 
+});
